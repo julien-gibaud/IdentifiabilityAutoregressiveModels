@@ -1,5 +1,6 @@
 library(MARSS)
 
+#create function for simulation
 simulationAR1 <- function(n=1000, T=50, rho, s2eps, s2eta, x0){
   list.rho <- c()
   list.s2eps <- c()
@@ -101,7 +102,7 @@ simulationMAR1 <- function(n=1000, T=50, a11=-1.5, a12=0.7, a21=-4, a22=2, s2eps
 # rho=0.45, s2eps=0.5, s2eta=0.5 
 
 res1 <- simulationAR1(rho=0.45, s2eps=0.5, s2eta=0.5, x0=0)
-save(res1, file = 'res1.RDATA')
+#save(res1, file = 'res1.RDATA')
 
 round(mean(res1$rho), digits = 3) # 0.457
 round(sd(res1$rho), digits = 3) # 0.291
@@ -114,7 +115,7 @@ round(sd(res1$s2eta), digits = 3) # 0.330
 # rho=0.45, s2eps=0.01, s2eta=0.1 
 
 res2 <- simulationAR1(rho=0.45, s2eps=0.01, s2eta=0.1, x0=0)
-save(res2, file = 'res2.RDATA')
+##save(res2, file = 'res2.RDATA')
 
 round(mean(res2$rho), digits = 3) # 0.132
 round(sd(res2$rho), digits = 3) # 0.425
@@ -127,7 +128,7 @@ round(sd(res2$s2eta), digits = 3) # 0.034
 # rho=0.7, s2eps=0.5, s2eta=0.5 
 
 res3 <- simulationAR1(rho=0.7, s2eps=0.5, s2eta=0.5, x0=0)
-save(res3, file = 'res3.RDATA')
+#save(res3, file = 'res3.RDATA')
 
 round(mean(res3$rho), digits = 3) # 0.649
 round(sd(res3$rho), digits = 3) # 0.205
@@ -140,7 +141,7 @@ round(sd(res3$s2eta), digits = 3) # 0.292
 # rho=0.7, s2eps=0.01, s2eta=0.1
 
 res4 <- simulationAR1(rho=0.7, s2eps=0.01, s2eta=0.1, x0=0)
-save(res4, file = 'res4.RDATA')
+#save(res4, file = 'res4.RDATA')
 
 round(mean(res4$rho), digits = 3) # 0.298
 round(sd(res4$rho), digits = 3) # 0.453
@@ -153,7 +154,7 @@ round(sd(res4$s2eta), digits = 3) # 0.036
 # rho=0, s2eps=0.5, s2eta=0.5 
 
 res5 <- simulationAR1(rho=0, s2eps=0.5, s2eta=0.5, x0=0)
-save(res5, file = 'res5.RDATA')
+#save(res5, file = 'res5.RDATA')
 
 round(mean(res5$rho), digits = 3) # 0.063
 round(sd(res5$rho), digits = 3) # 0.436
@@ -166,7 +167,7 @@ round(sd(res5$s2eta), digits = 3) # 0.329
 # rho=0, s2eps=0.01, s2eta=0.1 
 
 res6 <- simulationAR1(rho=0, s2eps=0.01, s2eta=0.1, x0=0)
-save(res6, file = 'res6.RDATA')
+#save(res6, file = 'res6.RDATA')
 
 round(mean(res6$rho), digits = 3) # 0.025
 round(sd(res6$rho), digits = 3) # 0.409
@@ -179,12 +180,12 @@ round(sd(res6$s2eta), digits = 3) # 0.033
 # Graphics ----
 library(ggplot2)
 
-load("/home/jgibaud/Documents/recherche/code/code ssm/res1.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res2.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res3.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res4.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res5.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res6.RDATA")
+load("SimulationResults/res1.RDATA")
+load("SimulationResults/res2.RDATA")
+load("SimulationResults/res3.RDATA")
+load("SimulationResults/res4.RDATA")
+load("SimulationResults/res5.RDATA")
+load("SimulationResults/res6.RDATA")
 
 df <- rbind(res1[,2:3],
             res2[,2:3],
@@ -213,7 +214,7 @@ pp
 # rho=0.45, s2eps=0.5, s2eta=0.5 
 
 res7 <- simulationAR1(rho=0.45, s2eps=0.5, s2eta=0.5, x0=5)
-save(res7, file = 'res7.RDATA')
+#save(res7, file = 'res7.RDATA')
 
 round(mean(res7$rho), digits = 3) # 0.449
 round(sd(res7$rho), digits = 3) # 0.143
@@ -226,7 +227,7 @@ round(sd(res7$s2eta), digits = 3) # 0.336
 # rho=0.45, s2eps=0.01, s2eta=0.1 
 
 res8 <- simulationAR1(rho=0.45, s2eps=0.01, s2eta=0.1, x0=5)
-save(res8, file = 'res8.RDATA')
+#save(res8, file = 'res8.RDATA')
 
 round(mean(res8$rho), digits = 3) # 0.448
 round(sd(res8$rho), digits = 3) # 0.047
@@ -239,7 +240,7 @@ round(sd(res8$s2eta), digits = 3) # 0.031
 # rho=0.9, s2eps=0.5, s2eta=0.5
 
 res9 <- simulationAR1(rho=0.9, s2eps=0.5, s2eta=0.5, x0=5)
-save(res9, file = 'res9.RDATA')
+#save(res9, file = 'res9.RDATA')
 
 round(mean(res9$rho), digits = 3) # 0.880
 round(sd(res9$rho), digits = 3) # 0.059
@@ -252,7 +253,7 @@ round(sd(res9$s2eta), digits = 3) # 0.238
 # rho=0.9, s2eps=0.01, s2eta=0.1 
 
 res10 <- simulationAR1(rho=0.9, s2eps=0.01, s2eta=0.1, x0=5)
-save(res10, file = 'res10.RDATA')
+#save(res10, file = 'res10.RDATA')
 
 round(mean(res10$rho), digits = 3) # 0.899
 round(sd(res10$rho), digits = 3) # 0.010
@@ -266,7 +267,7 @@ round(sd(res10$s2eta), digits = 3) # 0.025
 # rho=0.45, s2eps=0.5, s2eta=0.5 
 
 res11 <- simulationAR1(rho=0.45, s2eps=0.5, s2eta=0.5, x0=10)
-save(res11, file = 'res11.RDATA')
+#save(res11, file = 'res11.RDATA')
 
 round(mean(res11$rho), digits = 3) # 0.448
 round(sd(res11$rho), digits = 3) # 0.080
@@ -279,7 +280,7 @@ round(sd(res11$s2eta), digits = 3) # 0.320
 # rho=0.45, s2eps=0.01, s2eta=0.1 
 
 res12 <- simulationAR1(rho=0.45, s2eps=0.01, s2eta=0.1, x0=10)
-save(res12, file = 'res12.RDATA')
+#save(res12, file = 'res12.RDATA')
 
 round(mean(res12$rho), digits = 3) # 0.449
 round(sd(res12$rho), digits = 3) # 0.023
@@ -292,7 +293,7 @@ round(sd(res12$s2eta), digits = 3) # 0.031
 # rho=0.9, s2eps=0.5, s2eta=0.5 
 
 res13 <- simulationAR1(rho=0.9, s2eps=0.5, s2eta=0.5, x0=10)
-save(res13, file = 'res13.RDATA')
+#save(res13, file = 'res13.RDATA')
 
 round(mean(res13$rho), digits = 3) # 0.893
 round(sd(res13$rho), digits = 3) # 0.031
@@ -305,7 +306,7 @@ round(sd(res13$s2eta), digits = 3) # 0.232
 # rho=0.9, s2eps=0.01, s2eta=0.1 
 
 res14 <- simulationAR1(rho=0.9, s2eps=0.01, s2eta=0.1, x0=10)
-save(res14, file = 'res14.RDATA')
+#save(res14, file = 'res14.RDATA')
 
 round(mean(res14$rho), digits = 3) # 0.900
 round(sd(res14$rho), digits = 3) # 0.005
@@ -318,14 +319,14 @@ round(sd(res14$s2eta), digits = 3) # 0.025
 # Graphics ----
 library(ggplot2)
 
-load("/home/jgibaud/Documents/recherche/code/code ssm/res7.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res8.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res9.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res10.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res11.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res12.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res13.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res14.RDATA")
+load("SimulationResults/res7.RDATA")
+load("SimulationResults/res8.RDATA")
+load("SimulationResults/res9.RDATA")
+load("SimulationResults/res10.RDATA")
+load("SimulationResults/res11.RDATA")
+load("SimulationResults/res12.RDATA")
+load("SimulationResults/res13.RDATA")
+load("SimulationResults/res14.RDATA")
 
 df <- rbind(res7[,2:3],
             res8[,2:3],
@@ -372,7 +373,7 @@ pp
 # s2eps=0.5, s2eta=0.5 
 
 res15 <- simulationMAR1(s2eps=0.5, s2eta=0.5, x01=0, x02=0)
-save(res15, file = 'res15.RDATA')
+#save(res15, file = 'res15.RDATA')
 
 round(mean(res15$a11), digits = 3) # -1.541
 round(sd(res15$a11), digits = 3) # 0.313
@@ -390,7 +391,7 @@ round(sd(res15$s2eta), digits = 3) # 0.108
 # s2eps=0.01, s2eta=0.1 
 
 res16 <- simulationMAR1(s2eps=0.01, s2eta=0.1, x01=0, x02=0)
-save(res16, file = 'res16.RDATA')
+#save(res16, file = 'res16.RDATA')
 
 round(mean(res16$a11), digits = 3) # -1.090
 round(sd(res16$a11), digits = 3) # 1.055
@@ -408,7 +409,7 @@ round(sd(res16$s2eta), digits = 3) # 0.023
 # s2eps=0.01, s2eta=1 
 
 res21 <- simulationMAR1(s2eps=0.01, s2eta=1, x01=0, x02=0)
-save(res21, file = 'res21.RDATA')
+#save(res21, file = 'res21.RDATA')
 
 round(mean(res21$a11), digits = 3) # -0.006
 round(sd(res21$a11), digits = 3) # 0.789
@@ -427,7 +428,7 @@ round(sd(res21$s2eta), digits = 3) # 0.287
 # s2eps=0.5, s2eta=0.5 
 
 res17 <- simulationMAR1(s2eps=0.5, s2eta=0.5, x01=-5, x02=5)
-save(res17, file = 'res17.RDATA')
+#save(res17, file = 'res17.RDATA')
 
 round(mean(res17$a11), digits = 3) # -1.504
 round(sd(res17$a11), digits = 3) # 0.102
@@ -445,7 +446,7 @@ round(sd(res17$s2eta), digits = 3) # 0.107
 # s2eps=0.01, s2eta=0.1
 
 res18 <- simulationMAR1(s2eps=0.01, s2eta=0.1, x01=-5, x02=5)
-save(res18, file = 'res18.RDATA')
+#save(res18, file = 'res18.RDATA')
 
 round(mean(res18$a11), digits = 3) # -1.502
 round(sd(res18$a11), digits = 3) # 0.031
@@ -463,7 +464,7 @@ round(sd(res18$s2eta), digits = 3) # 0.021
 # s2eps=0.01, s2eta=1 
 
 res22 <- simulationMAR1(s2eps=0.01, s2eta=1, x01=-5, x02=5)
-save(res22, file = 'res22.RDATA')
+#save(res22, file = 'res22.RDATA')
 
 round(mean(res22$a11), digits = 3) # -1.530
 round(sd(res22$a11), digits = 3) # 0.090
@@ -483,7 +484,7 @@ round(sd(res22$s2eta), digits = 3) # 0.178
 # s2eps=0.5, s2eta=0.5 
 
 res19 <- simulationMAR1(s2eps=0.5, s2eta=0.5, x01=-10, x02=10)
-save(res19, file = 'res19.RDATA')
+#save(res19, file = 'res19.RDATA')
 
 round(mean(res19$a11), digits = 3) # -1.502
 round(sd(res19$a11), digits = 3) # 0.058
@@ -501,7 +502,7 @@ round(sd(res19$s2eta), digits = 3) # 0.108
 # s2eps=0.01, s2eta=0.1
 
 res20 <- simulationMAR1(s2eps=0.01, s2eta=0.1, x01=-10, x02=10)
-save(res20, file = 'res20.RDATA')
+#save(res20, file = 'res20.RDATA')
 
 round(mean(res20$a11), digits = 3) # -1.501
 round(sd(res20$a11), digits = 3) # 0.016
@@ -519,7 +520,7 @@ round(sd(res20$s2eta), digits = 3) # 0.021
 # s2eps=0.01, s2eta=1
 
 res23 <- simulationMAR1(s2eps=0.01, s2eta=1, x01=-10, x02=10)
-save(res23, file = 'res23.RDATA')
+#save(res23, file = 'res23.RDATA')
 
 round(mean(res23$a11), digits = 3) # -1.518
 round(sd(res23$a11), digits = 3) # 0.045
@@ -537,15 +538,15 @@ round(sd(res23$s2eta), digits = 3) # 0.177
 #Graphics ----
 library(ggplot2)
 
-load("/home/jgibaud/Documents/recherche/code/code ssm/res15.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res16.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res17.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res18.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res19.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res20.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res21.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res22.RDATA")
-load("/home/jgibaud/Documents/recherche/code/code ssm/res23.RDATA")
+load("SimulationResults/res15.RDATA")
+load("SimulationResults/res16.RDATA")
+load("SimulationResults/res17.RDATA")
+load("SimulationResults/res18.RDATA")
+load("SimulationResults/res19.RDATA")
+load("SimulationResults/res20.RDATA")
+load("SimulationResults/res21.RDATA")
+load("SimulationResults/res22.RDATA")
+load("SimulationResults/res23.RDATA")
 
 
 df <- rbind(res15[,5:6],
@@ -717,37 +718,8 @@ BootMAR1 <- function(n=1000, T=35, a11, a12, a21, a22, s2eps, s2eta, x01, x02){
 }
 
 #load data
-data <- read.csv2("/home/jgibaud/Documents/recherche/code/code ssm/jzo12716-sup-0002-datas2.csv", header = T)
+data <- read.csv2("jzo12716-sup-0002-datas2.csv", header = T)
 
-# Graphics
-df <- as.data.frame(cbind(rep(data$year_N, times = 2),
-                          c(data$N_deer_adj_SNP, data$N_chamois_adj),
-                          rep(c("Deer", "Chamois"), each = length(data$year_N))))
-colnames(df) <- c("Year", "Abundance", "Taxa")
-df$Taxa <- as.factor(df$Taxa)
-df$Year <- as.numeric(df$Year)
-df$Abundance <- as.numeric(df$Abundance)
-
-
-pp <- ggplot(data=df, aes(x=Year, y=Abundance, colour = Taxa)) + geom_line() +
-  theme(axis.text=element_text(size=20), axis.title=element_text(size=25),
-        legend.text=element_text(size = 25), legend.title=element_text(size = 20))+
-  scale_x_continuous(breaks=c(1985, 1990, 1995, 2000, 2005, 2010, 2015))
-
-# pdf(file = "/home/jgibaud/Documents/recherche/code/code ssm/Abundance.pdf", width = 12, height = 7.5)
-pp
-# dev.off()
-
-
-df$Abundance <- log(df$Abundance)
-pp <- ggplot(data=df, aes(x=Year, y=Abundance, colour = Taxa)) + geom_line()+
-  theme(axis.text=element_text(size=20), axis.title=element_text(size=25),
-        legend.text=element_text(size = 18), legend.title=element_text(size = 15))+
-  scale_x_continuous(breaks=c(1985, 1990, 1995, 2000, 2005, 2010, 2015))
-
-# pdf(file = "/home/jgibaud/Documents/recherche/code/code ssm/LogAbundance.pdf", width = 12, height = 7.5)
-pp
-# dev.off()
 
 #run MARSS for deer
 Z <- matrix(1, 1, 1)
@@ -766,6 +738,7 @@ res.deer <- MARSS(Y.deer,
                   control = control)
 res.deer
 
+#Run bootstrap for deer
 boot.deer <- BootAR1(rho = res.deer$par$B,
                      s2eps = res.deer$par$Q,
                      s2eta = res.deer$par$R,
@@ -780,6 +753,7 @@ res.chamois <- MARSS(Y.chamois,
                      control = control)
 res.chamois
 
+#run bootstrap for chamois
 boot.chamois <- BootAR1(rho = res.chamois$par$B,
                         s2eps = res.chamois$par$Q,
                         s2eta = res.chamois$par$R,
@@ -805,6 +779,7 @@ res.ungulate <- MARSS(Y.ungulate,
                       control = control)
 res.ungulate
 
+#run bootstrap for ungulates
 boot.ungulate <- BootMAR1(a11 = res.ungulate$coef[2],
                           a12 = res.ungulate$coef[4], 
                           a21 = res.ungulate$coef[3],
@@ -815,31 +790,64 @@ boot.ungulate <- BootMAR1(a11 = res.ungulate$coef[2],
                           x02 = res.ungulate$coef[8])
 boot.ungulate
 
-save(res.chamois,
-     res.deer,
-     res.ungulate,
-     boot.chamois,
-     boot.deer,
-     boot.ungulate,
-     file = "/home/jgibaud/Documents/recherche/code/code ssm/CaseStudy.RDATA")
+# save(res.chamois,
+#      res.deer,
+#      res.ungulate,
+#      boot.chamois,
+#      boot.deer,
+#      boot.ungulate,
+#      file = "SimulationResults/CaseStudy.RDATA")
 
 #Graphics----
 
-load("/home/jgibaud/Documents/recherche/code/code ssm/CaseStudy.RDATA")
+#graph for estimated variances
+load("SimulationResults/CaseStudy.RDATA")
 
 df <- rbind(boot.chamois[,2:3],
             boot.deer[,2:3],
             boot.ungulate[,5:6])
-
 
 df$simu <- as.factor(c(rep("Chamois", 1000),
                        rep("Deer", 1000),
                        rep("Ungulates", 998)))
 
 
-pdf(file = "/home/jgibaud/Documents/recherche/code/code ssm/VariancesCaseStudy.pdf", width = 7, height = 10)
+pdf(file = "Graphs/VariancesCaseStudy.pdf", width = 7, height = 10)
 pp <- ggplot(df, aes(s2eps, s2eta)) + geom_point(size=0.5)
 pp <- pp + facet_wrap(~ simu, scales = "free", nrow=2, ncol=2, labeller = label_parsed)
 pp <- pp + xlab("State variance") + ylab("Observation variance")
+pp
+dev.off()
+
+
+#graphs for abundance
+data <- read.csv2("jzo12716-sup-0002-datas2.csv", header = T)
+
+df <- as.data.frame(cbind(rep(data$year_N, times = 2),
+                          c(data$N_deer_adj_SNP, data$N_chamois_adj),
+                          rep(c("Deer", "Chamois"), each = length(data$year_N))))
+colnames(df) <- c("Year", "Abundance", "Taxa")
+df$Taxa <- as.factor(df$Taxa)
+df$Year <- as.numeric(df$Year)
+df$Abundance <- as.numeric(df$Abundance)
+
+
+pp <- ggplot(data=df, aes(x=Year, y=Abundance, colour = Taxa)) + geom_line() +
+  theme(axis.text=element_text(size=20), axis.title=element_text(size=25),
+        legend.text=element_text(size = 25), legend.title=element_text(size = 20))+
+  scale_x_continuous(breaks=c(1985, 1990, 1995, 2000, 2005, 2010, 2015))
+
+pdf(file = "Graphs/Abundance.pdf", width = 12, height = 7.5)
+pp
+dev.off()
+
+
+df$Abundance <- log(df$Abundance)
+pp <- ggplot(data=df, aes(x=Year, y=Abundance, colour = Taxa)) + geom_line()+
+  theme(axis.text=element_text(size=20), axis.title=element_text(size=25),
+        legend.text=element_text(size = 18), legend.title=element_text(size = 15))+
+  scale_x_continuous(breaks=c(1985, 1990, 1995, 2000, 2005, 2010, 2015))
+
+pdf(file = "Graphs/LogAbundance.pdf", width = 12, height = 7.5)
 pp
 dev.off()
